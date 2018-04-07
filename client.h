@@ -11,6 +11,7 @@ public:
 
 	void ClientShow();
 	int ClientPassIdToNum(const std::string &PasID);
+	std::string GetPassId();
 
 	~client();
 private:
