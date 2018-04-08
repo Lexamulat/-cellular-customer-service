@@ -7,6 +7,21 @@ BinaryTree::BinaryTree()
 {
 }
 
+std::shared_ptr<tree> BinaryTree::removemin(std::shared_ptr<tree>& p)
+{
+	if (p->GetLeft() == 0)return p->GetRight();
+
+	//p->left = removemin(p->left);
+	p->SetLeft(removemin(p->GetLeft()));
+	Balance(p);
+	return p;
+}
+
+std::shared_ptr<tree> BinaryTree::FindMin(std::shared_ptr<tree>& p){
+	return p->GetLeft() ? FindMin(p->GetLeft()) : p;
+
+}
+
 void BinaryTree::Preremove(){
 	std::string input;
 	std::cout << std::endl << "num of passport \n like this 1234-123456" << std::endl;
@@ -15,26 +30,31 @@ void BinaryTree::Preremove(){
 	input.erase(input.begin() + 4);
 	int pasnum = fake->ClientPassIdToNum(input);
 	std::cout << "from inp to num" << std::endl;
-	remove(head, pasnum);
+	fake = remove(head, pasnum);
+	Balance(fake);
+	head = fake;
+	
 }
 
-std::shared_ptr<tree> BinaryTree::remove(std::shared_ptr<tree>& head, int pasnum){
-	if (!head) return 0;
-	if (pasnum < head->ClientPassIdToNum(head->GetPassId()))
-		head->SetLeft(remove(head->GetLeft(), pasnum));
+std::shared_ptr<tree> BinaryTree::remove(std::shared_ptr<tree> p, int pasnum){
+	if (!p) return 0;
+	if (pasnum < p->ClientPassIdToNum(p->GetPassId()))
+		p->SetLeft(remove(head->GetLeft(), pasnum));
 	//p->left = remove(p->left, k);
-	else if (pasnum > head->ClientPassIdToNum(head->GetPassId()))
-		head->SetRight(remove(head->GetRight(), pasnum));
+	else if (pasnum > p->ClientPassIdToNum(p->GetPassId()))
+		p->SetRight(remove(p->GetRight(), pasnum));
 		//p->right = remove(p->right, k);
 	else //  k == p->key 
 	{
-		std::shared_ptr<tree> q = head->GetLeft();
-		std::shared_ptr<tree> r = head->GetRight();
-		delete p;
+		std::shared_ptr<tree> q = p->GetLeft();
+		std::shared_ptr<tree> r = p->GetRight();
+		//delete p;
 		if (!r) return q;
-		node* min = FindMin(r);
-		min->right = removemin(r);
-		min->left = q;
+		std::shared_ptr<tree> min = FindMin(r);
+		//min->right = removemin(r);
+		min->SetRight(removemin(r));
+		//min->left = q;
+		min->SetLeft(q);
 		// Balance(min);
 		return min;
 	}

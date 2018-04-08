@@ -6,8 +6,10 @@ class BinaryTree
 {
 public:
 	BinaryTree();
+	std::shared_ptr<tree> removemin(std::shared_ptr<tree>& p);
+	std::shared_ptr<tree> FindMin(std::shared_ptr<tree>& p);
 	void Preremove();
-	std::shared_ptr<tree> remove(std::shared_ptr<tree>& head, int pasnum);
+	std::shared_ptr<tree> remove(std::shared_ptr<tree> p, int pasnum);
 	void Preshow();
 	void ShowTree(std::shared_ptr<tree> head, int up);
 	void Add(std::shared_ptr<tree> &head, std::shared_ptr<tree> temp, std::shared_ptr<tree> &current);
