@@ -82,7 +82,7 @@ unsigned int BinaryTree::height(std::shared_ptr<tree>& head){
 	return head ? head->GetHeight() : 0;
 }
 
-void BinaryTree::Add(std::shared_ptr<tree> head, std::shared_ptr<tree> temp, std::shared_ptr<tree>current) {
+void BinaryTree::Add(std::shared_ptr<tree> &head, std::shared_ptr<tree> temp, std::shared_ptr<tree> &current) {
 
 	if (head == nullptr) {
 		head = temp;
@@ -90,8 +90,11 @@ void BinaryTree::Add(std::shared_ptr<tree> head, std::shared_ptr<tree> temp, std
 		//head->key = temp->key;
 		return;
 	}
+	//std::cout << temp->ClientPassIdToNum(temp->GetPassId());
+	//std::cout << temp->ClientPassIdToNum(temp->GetPassId());
+
 	else {
-		if (temp->ClientPassIdToNum(temp->GetPassId())<head->ClientPassIdToNum(temp->GetPassId())) {
+		if (temp->ClientPassIdToNum(temp->GetPassId())<head->ClientPassIdToNum(head->GetPassId())) {
 			if (current->GetLeft() == nullptr) {
 				current->SetLeft(temp);
 				

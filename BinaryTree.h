@@ -8,7 +8,7 @@ public:
 	BinaryTree();
 	void Preshow();
 	void ShowTree(std::shared_ptr<tree> head, int up);
-	void Add(std::shared_ptr<tree> head, std::shared_ptr<tree> temp, std::shared_ptr<tree>current);
+	void Add(std::shared_ptr<tree> &head, std::shared_ptr<tree> temp, std::shared_ptr<tree> &current);
 	void Create();
 	void Balance(std::shared_ptr<tree> &head);
 	void fixheight(std::shared_ptr<tree> &head);
