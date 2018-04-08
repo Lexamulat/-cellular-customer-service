@@ -6,6 +6,8 @@ class BinaryTree
 {
 public:
 	BinaryTree();
+	void Preremove();
+	std::shared_ptr<tree> remove(std::shared_ptr<tree>& head, int pasnum);
 	void Preshow();
 	void ShowTree(std::shared_ptr<tree> head, int up);
 	void Add(std::shared_ptr<tree> &head, std::shared_ptr<tree> temp, std::shared_ptr<tree> &current);

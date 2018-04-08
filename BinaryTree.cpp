@@ -7,6 +7,42 @@ BinaryTree::BinaryTree()
 {
 }
 
+void BinaryTree::Preremove(){
+	std::string input;
+	std::cout << std::endl << "num of passport \n like this 1234-123456" << std::endl;
+	std::cin >> input;
+	std::shared_ptr<tree> fake;
+	input.erase(input.begin() + 4);
+	int pasnum = fake->ClientPassIdToNum(input);
+	std::cout << "from inp to num" << std::endl;
+	remove(head, pasnum);
+}
+
+std::shared_ptr<tree> BinaryTree::remove(std::shared_ptr<tree>& head, int pasnum){
+	if (!head) return 0;
+	if (pasnum < head->ClientPassIdToNum(head->GetPassId()))
+		head->SetLeft(remove(head->GetLeft(), pasnum));
+	//p->left = remove(p->left, k);
+	else if (pasnum > head->ClientPassIdToNum(head->GetPassId()))
+		head->SetRight(remove(head->GetRight(), pasnum));
+		//p->right = remove(p->right, k);
+	else //  k == p->key 
+	{
+		std::shared_ptr<tree> q = head->GetLeft();
+		std::shared_ptr<tree> r = head->GetRight();
+		delete p;
+		if (!r) return q;
+		node* min = FindMin(r);
+		min->right = removemin(r);
+		min->left = q;
+		// Balance(min);
+		return min;
+	}
+	//Balance(p);
+	return p;
+
+}
+
 void BinaryTree::Preshow(){
 	int up = 0;
 	ShowTree(this->head, up);

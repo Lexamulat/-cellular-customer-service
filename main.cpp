@@ -26,8 +26,10 @@ int main() {
 
 		shared_ptr<BinaryTree> Bitree(new BinaryTree());
 		Bitree->Create();
-		Bitree->Create();
-		Bitree->Preshow();
+		//Bitree->Create();
+		//Bitree->Create();
+		//Bitree->Create();
+		//Bitree->Preshow();
 		/*int up = 0;
 		Bitree->Show(Bitree->GetHead(), up);*/
 
