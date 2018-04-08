@@ -1,14 +1,21 @@
 #pragma once
 #include "client.h"
+#include <memory>
 class tree: public client
 {
 public:
 	tree();
 	~tree();	
+	std::shared_ptr<tree> GetLeft();
+	std::shared_ptr<tree> GetRight();
+	void SetLeft(std::shared_ptr<tree> set);
+	void SetRight(std::shared_ptr<tree> set);
+	unsigned int GetHeight();
+	void SetHeight(unsigned int setH);
 private:
 
 	unsigned int height = 0;
-	tree* left = nullptr;
-	tree* right = nullptr;
+	std::shared_ptr<tree> left = nullptr;
+	std::shared_ptr<tree> right = nullptr;
 };
 

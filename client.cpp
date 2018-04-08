@@ -41,8 +41,8 @@ void client::ClientShow() {
 }
 std::string client::GetPassId() {
 	return this->passportID;
-
 }
+
 int client::ClientPassIdToNum(const string &PasID) {
 	string CopyOfPass(PasID);
 	CopyOfPass.erase(CopyOfPass.begin() + 4);// eraise 4 symb ('-')

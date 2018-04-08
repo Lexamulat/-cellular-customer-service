@@ -6,9 +6,6 @@ class client
 {
 public:
     client();
-
-
-
 	void ClientShow();
 	int ClientPassIdToNum(const std::string &PasID);
 	std::string GetPassId();

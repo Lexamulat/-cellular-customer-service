@@ -1,18 +1,25 @@
 #pragma once
 #include "tree.h"
-class BinaryTree:public tree
+#include <memory>
+class BinaryTree
 
 {
 public:
 	BinaryTree();
-
-	void Show(BinaryTree* head, int up);
-
+	void Preshow();
+	void ShowTree(std::shared_ptr<tree> head, int up);
+	void Add(std::shared_ptr<tree> head, std::shared_ptr<tree> temp, std::shared_ptr<tree>current);
+	void Create();
+	void Balance(std::shared_ptr<tree> &head);
+	void fixheight(std::shared_ptr<tree> &head);
+	unsigned int height(std::shared_ptr<tree> &head);
 	~BinaryTree();
+	std::shared_ptr<tree> GetHead();
+	void LeftRotate(std::shared_ptr<tree> &head);
+	void RightRotate(std::shared_ptr<tree> &head);
 
 private:
-		int up = 0;
-		tree* current = nullptr;
-		tree* head = nullptr;
+	std::shared_ptr<tree> current = nullptr;
+	std::shared_ptr<tree> head = nullptr;
 };
 
