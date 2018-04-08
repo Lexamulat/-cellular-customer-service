@@ -7,6 +7,56 @@ BinaryTree::BinaryTree()
 {
 }
 
+//void BinaryTree::SearchForDel(std::shared_ptr<tree>& head){
+//
+//}
+
+void BinaryTree::Rec(std::shared_ptr<tree> Current, int num, bool & b){
+	if (num == Current->ClientPassIdToNum(Current->GetPassId())) {
+
+		std::cout << "detected" << std::endl;
+		b = 1;
+	}
+	else {
+		if (num < Current->ClientPassIdToNum(Current->GetPassId())) {
+			if (Current->GetLeft() == nullptr) {
+				std::cout << "disappeard" << std::endl;
+			}
+			else {
+				Current = Current->GetLeft();
+				Rec(Current, num, b);
+
+			}
+		}
+
+
+		if (num >Current->ClientPassIdToNum(Current->GetPassId())) {
+			if (Current->GetRight() == nullptr) {
+				std::cout << "disappeard" << std::endl;
+			}
+			else {
+				Current = Current->GetRight();
+				Rec(Current, num, b);
+			}
+		}
+	}
+}
+
+void BinaryTree::PreStraight(){
+	StraightPrint(head);
+}
+
+void BinaryTree::StraightPrint(std::shared_ptr<tree> head){
+
+	if (head == nullptr) {
+		return;
+	}
+	StraightPrint(head->GetLeft());
+	StraightPrint(head->GetRight());
+
+	std::cout << head->GetPassId() << " ";
+}
+
 std::shared_ptr<tree> BinaryTree::removemin(std::shared_ptr<tree>& p)
 {
 	if (p->GetLeft() == 0)return p->GetRight();
@@ -29,11 +79,18 @@ void BinaryTree::Preremove(){
 	std::shared_ptr<tree> fake;
 	input.erase(input.begin() + 4);
 	int pasnum = fake->ClientPassIdToNum(input);
-	std::cout << "from inp to num" << std::endl;
-	fake = remove(head, pasnum);
-	Balance(fake);
-	head = fake;
-	
+	//std::cout << "from inp to num" << std::endl;
+	bool b=0;
+	Rec(head, pasnum, b);
+	if (!b) {
+		std::cout << "no such man" << std::endl;
+		return;
+	}
+	else {
+		fake = remove(head, pasnum);
+		Balance(fake);
+		head = fake;
+	}
 }
 
 std::shared_ptr<tree> BinaryTree::remove(std::shared_ptr<tree> p, int pasnum){

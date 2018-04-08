@@ -5,7 +5,12 @@ class BinaryTree
 
 {
 public:
+
 	BinaryTree();
+	//void SearchForDel(std::shared_ptr<tree>& head);
+	void Rec(std::shared_ptr<tree> Current, int num, bool &b);
+	void PreStraight();
+	void StraightPrint(std::shared_ptr<tree> head);
 	std::shared_ptr<tree> removemin(std::shared_ptr<tree>& p);
 	std::shared_ptr<tree> FindMin(std::shared_ptr<tree>& p);
 	void Preremove();

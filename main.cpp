@@ -26,8 +26,9 @@ int main() {
 
 		shared_ptr<BinaryTree> Bitree(new BinaryTree());
 		Bitree->Create();
-		Bitree->Create();
-		Bitree->Create();
+		
+		//Bitree->Create();
+		//Bitree->Create();
 		//Bitree->Create();
 		//Bitree->Create();
 		//Bitree->Preshow();
@@ -40,6 +41,8 @@ int main() {
 		cout <<endl<< "----------------" << endl;
 		Bitree->Preshow();
 
+		//have straight view
+		Bitree->PreStraight();
 
 	system("pause");
 	return 0;

@@ -26,9 +26,6 @@ client::client()
 	int a;
 	std::cin>> a;
 	year = a;
-	cout << "--------------------------" << endl;
-
-	ClientPassIdToNum(passportID);
 }
 void client::ClientShow() {
 
@@ -52,7 +49,7 @@ int client::ClientPassIdToNum(const string &PasID) {
 		num=num+((int)CopyOfPass[i] -48)*pow(10,j);
 		j++;
 	}
-	cout << "num" << num << endl;
+
 	return num;
 }
 
