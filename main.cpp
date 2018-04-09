@@ -4,6 +4,7 @@
 #include "tree.h"
 #include <memory>
 #include "BinaryTree.h"
+#include "hashtable.h"
 using namespace std;
 
 
@@ -24,25 +25,32 @@ int main() {
 
 
 
-		shared_ptr<BinaryTree> Bitree(new BinaryTree());
-		Bitree->Create();
-		
+		//shared_ptr<BinaryTree> Bitree(new BinaryTree());
 		//Bitree->Create();
-		//Bitree->Create();
-		//Bitree->Create();
-		//Bitree->Create();
+		//
+		////Bitree->Create();
+		////Bitree->Create();
+		////Bitree->Create();
+		////Bitree->Create();
+		////Bitree->Preshow();
+		///*int up = 0;
+		//Bitree->Show(Bitree->GetHead(), up);*/
+
 		//Bitree->Preshow();
-		/*int up = 0;
-		Bitree->Show(Bitree->GetHead(), up);*/
+		//cout <<endl<< "----------------" << endl;
+		//Bitree->Preremove();
+		//cout <<endl<< "----------------" << endl;
+		//Bitree->Preshow();
 
-		Bitree->Preshow();
-		cout <<endl<< "----------------" << endl;
-		Bitree->Preremove();
-		cout <<endl<< "----------------" << endl;
-		Bitree->Preshow();
+		////have straight view
+		//Bitree->PreStraight();
 
-		//have straight view
-		Bitree->PreStraight();
+		////////////////////////////////////
+		//sim
+
+	shared_ptr<hashtable> table(new hashtable());
+	table->preAdd();
+
 
 	system("pause");
 	return 0;
