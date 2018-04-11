@@ -114,6 +114,7 @@
     <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="client.cpp" />
     <ClCompile Include="hashtable.cpp" />
+    <ClCompile Include="issuedsimcards.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="sim.cpp" />
     <ClCompile Include="tree.cpp" />
@@ -122,6 +123,7 @@
     <ClInclude Include="BinaryTree.h" />
     <ClInclude Include="client.h" />
     <ClInclude Include="hashtable.h" />
+    <ClInclude Include="issuedsimcards.h" />
     <ClInclude Include="sim.h" />
     <ClInclude Include="tree.h" />
   </ItemGroup>

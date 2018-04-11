@@ -33,6 +33,9 @@
     <ClCompile Include="hashtable.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="issuedsimcards.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="client.h">
@@ -48,6 +51,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="hashtable.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="issuedsimcards.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
