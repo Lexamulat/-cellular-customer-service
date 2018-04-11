@@ -7,6 +7,7 @@ class BinaryTree
 public:
 
 	BinaryTree();
+	bool Search(std::string input);
 	//void SearchForDel(std::shared_ptr<tree>& head);
 	void Rec(std::shared_ptr<tree> Current, int num, bool &b);
 	void PreStraight();

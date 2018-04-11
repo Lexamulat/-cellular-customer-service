@@ -7,6 +7,19 @@ BinaryTree::BinaryTree()
 {
 }
 
+bool BinaryTree::Search(std::string input){
+	std::shared_ptr<tree> fake;
+	input.erase(input.begin() + 4);
+	int pasnum = fake->ClientPassIdToNum(input);
+	bool b = 0;
+	Rec(head, pasnum, b);
+	if (!b) {
+		std::cout << "no such man" << std::endl;
+		return 0;
+	}
+	else return 1;
+}
+
 void BinaryTree::Rec(std::shared_ptr<tree> Current, int num, bool & b){
 	if (num == Current->ClientPassIdToNum(Current->GetPassId())) {
 
