@@ -26,6 +26,10 @@ public:
 	std::shared_ptr<tree> GetHead();
 	void LeftRotate(std::shared_ptr<tree> &head);
 	void RightRotate(std::shared_ptr<tree> &head);
+	void PreFragmentalSearch();
+	bool FragmentalSearch(std::string str1, std::string str2);
+	void StraightSearchBySNP(std::shared_ptr<tree> head, std::string str2, bool &dontfound);
+	void StraightSearchByAddress(std::shared_ptr<tree> head, std::string str2, bool &dontfound);
 
 private:
 	std::shared_ptr<tree> current = nullptr;

@@ -26,10 +26,12 @@ int main() {
 	//cout << (int)'0' << endl;//48
 
 	//cout << (int)'9';//57
+	shared_ptr<BinaryTree> Bitree(new BinaryTree());
+	Bitree->Create();
+	Bitree->PreFragmentalSearch();
 
-
-		shared_ptr<BinaryTree> Bitree(new BinaryTree());
-		Bitree->Create();
+		/*shared_ptr<BinaryTree> Bitree(new BinaryTree());
+		Bitree->Create();*/
 		//
 		////Bitree->Create();
 		////Bitree->Create();
@@ -51,12 +53,21 @@ int main() {
 		////////////////////////////////////
 		//sim
 
-	/*shared_ptr<hashtable> table(new hashtable());
-	table->preAdd();
+	//shared_ptr<hashtable> table(new hashtable());
+	/*table->preAdd();
 
 	table->show();
 
-	table->tablesearch();*/
+	
+	table->DelfromTable();
+
+	table->show();*/
+
+
+
+
+
+
 
 	system("pause");
 	return 0;

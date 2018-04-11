@@ -9,6 +9,8 @@ public:
 	void ClientShow();
 	int ClientPassIdToNum(const std::string &PasID);
 	std::string GetPassId();
+	std::string GetAddress();
+	std::string GetSNP();
 
 	~client();
 private:

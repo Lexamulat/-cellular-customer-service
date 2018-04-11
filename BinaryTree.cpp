@@ -7,10 +7,6 @@ BinaryTree::BinaryTree()
 {
 }
 
-//void BinaryTree::SearchForDel(std::shared_ptr<tree>& head){
-//
-//}
-
 void BinaryTree::Rec(std::shared_ptr<tree> Current, int num, bool & b){
 	if (num == Current->ClientPassIdToNum(Current->GetPassId())) {
 
@@ -286,6 +282,90 @@ void BinaryTree::RightRotate(std::shared_ptr<tree>& head){
 	fixheight(q);
 
 	head = q;
+
+}
+
+void BinaryTree::PreFragmentalSearch(){
+	std::string str2;
+	
+	bool dontfound = 1;
+	int choise=0;
+	while (1) {
+		std::cout << "enter point of search" << std::endl;
+		std::cout << "(1)By segment of Name" << std::endl;
+		std::cout << "(2)By segment of address" << std::endl;
+		std::cout << "(3)exit" << std::endl;
+		std::cin >> choise;
+		switch (choise) {
+		case 1:
+			std::cout << "write segment" << std::endl;
+		
+			std::cin >> str2;
+			StraightSearchBySNP(head, str2,dontfound);
+			if (dontfound) std::cout << "do not found" << std::endl;
+			break;
+		case 2:
+			std::cout << "write segment" << std::endl;
+			std::cin >> str2;
+			StraightSearchByAddress(head, str2,dontfound);
+			if (dontfound) std::cout << "do not found" << std::endl;
+			break;
+		case 3:
+			return;
+		default:
+			std::cout << "incorrect expression try again" << std::endl;
+		}
+	}
+	
+}
+
+bool BinaryTree::FragmentalSearch(std::string str1, std::string str2){
+	int count = 0;
+	for (int i = 0; i < str1.length(); i++) {
+		if (str1[i] == str2[0]) {
+			count++;
+			for (int j=1; j < str2.length(); j++) {
+				if (str1[j + i] == str2[j]) {
+					count++;
+				}
+				else break;
+		
+			}
+		}
+		if (count == str2.length()) return true;
+		count = 0;
+	}
+	return false;
+}
+
+void BinaryTree::StraightSearchBySNP(std::shared_ptr<tree> head, std::string str2, bool &dontfound){
+	if (head == nullptr) {
+		return;
+	}
+	StraightPrint(head->GetLeft());
+	StraightPrint(head->GetRight());
+	bool b=FragmentalSearch(head->GetSNP(),str2);
+	if (b) {
+		head->ClientShow();
+		dontfound = 0;
+	}
+	
+	
+}
+
+void BinaryTree::StraightSearchByAddress(std::shared_ptr<tree> head, std::string str2, bool &dontfound){
+	if (head == nullptr) {
+		return;
+	}
+	StraightPrint(head->GetLeft());
+	StraightPrint(head->GetRight());
+	bool b = FragmentalSearch(head->GetAddress(), str2);
+	if (b) {
+		head->ClientShow();
+		dontfound = 0;
+	}
+
+
 
 }
 
