@@ -3,9 +3,33 @@
 
 
 sim::sim(){
-	std::cout << "enter sim number\n like this 123-1234567" << std::endl;
+	bool wrong = 1;
 	std::string input;
-	std::cin >> input;
+	while (wrong) {
+		std::cout << "enter sim number\n like this 123-1234567" << std::endl;
+		std::cin >> input;
+		if (input.length() != 11) {
+			wrong = 1;
+			continue;
+		}
+		for (int i = 0; i < 3; i++) {
+			if (((int)input[i] < 48) || ((int)input[i] > 57)) {
+				wrong = 1;
+				break;
+			}
+		}
+		if (input[3] != '-') {
+			wrong = 1;
+			continue;
+		}
+		for (int i = 4; i < 11; i++) {
+			if (((int)input[i] < 48) || ((int)input[i] > 57)) {
+				wrong = 1;
+				break;
+			}
+		}
+		wrong = 0;
+	}
 	SimNum = input;
 	input.clear();
 	std::cout << std::endl << "rate of this sim?" << std::endl;

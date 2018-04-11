@@ -5,6 +5,7 @@ using namespace std;
 
 client::client()
 {
+	bool wrong = 1;
 	std::cout<<"enter surname/name/patronymic\n like this: kilin/daniil/victorovich"<<std::endl;
 	std::string input;
 	std::cin >> input;
@@ -14,9 +15,33 @@ client::client()
 	std::cin >> input;
 			placeOfIssue = input;
 	input.clear();
-	std::cout << std::endl << "num of passport \n like this 1234-123456" << std::endl;
-	std::cin >> input;
-			passportID = input;
+	while (wrong) {
+		std::cout << std::endl << "num of passport \n like this 1234-123456" << std::endl;
+		std::cin >> input;
+		if (input.length() != 11) {
+			wrong = 1;
+			continue;
+		}
+		for (int i = 0; i < 4; i++) {
+			if (((int)input[i] < 48) || ((int)input[i] > 57)) {
+				wrong = 1;
+				break;
+			}
+		}
+		if (input[4] != '-') {
+			wrong = 1;
+			continue;
+		}
+		for (int i = 5; i < 11; i++) {
+			if (((int)input[i] < 48) || ((int)input[i] > 57)) {
+				wrong = 1;
+				break;
+			}
+		}
+		wrong = 0;
+	}
+
+	passportID = input;
 	input.clear();
 	std::cout << std::endl << "your address" << std::endl;
 	std::cin >> input;
