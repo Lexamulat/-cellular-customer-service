@@ -31,9 +31,12 @@ void hashtable::DelfromTable(){
 }
 
 void hashtable::tablesearch(bool CallFromDel){
-	std::cout << "enter sim number\n like this 123-1234567" << std::endl;
+	
 	std::string input;
-	std::cin >> input;	
+		std::cout << "enter sim number\n like this 123-1234567" << std::endl;
+		
+		std::cin >> input;
+
 	int hashnum = hashFunc(input);
 	int firsthash = hashnum;
 	int count=0;
@@ -103,6 +106,43 @@ void hashtable::preAdd(){
 	if (full) return;
 	std::shared_ptr<sim> temp(new sim());
 	addInTable(temp);
+}
+
+bool hashtable::TableSearchWithInputString(std::string input){
+	int hashnum = hashFunc(input);
+	int firsthash = hashnum;
+	int count = 0;
+	while (true) {
+		if (mas[hashnum] == nullptr) {
+			std::cout << "there is no sim with such number" << std::endl;
+			return 0;
+		}
+		else {
+			std::string current = mas[hashnum]->GetSimNum();
+			for (int i = 0; i < 11; i++) {
+				if (current[i] == input[i])
+					count++;
+			}
+			if (count == 11) {
+				return 1;
+			}
+			else {
+				if (hashnum == firsthash - 1) {
+					std::cout << "there is no sim with such number" << std::endl;
+					return 0;
+				}
+				else {
+					count = 0;
+					if (hashnum == 3) {
+						hashnum = 0;
+					}
+					else hashnum++;
+				}
+
+			}
+		}
+
+	}
 }
 
 void hashtable::addInTable(std::shared_ptr<sim> obj){
