@@ -51,7 +51,9 @@ int main() {
 	shared_ptr<hashtable> table(new hashtable());
 	table->preAdd();
 
+	table->show();
 
+	table->tablesearch();
 	system("pause");
 	return 0;
 }

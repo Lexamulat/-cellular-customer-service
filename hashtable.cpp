@@ -11,6 +11,84 @@ hashtable::~hashtable()
 {
 }
 
+bool hashtable::IsTableFull(){
+	
+	for (int i = 0; i < 4; i++) {
+		if ((mas[i] == nullptr) || (mas[i]->GetSimNum() == "000-0000000")) {
+			return false;
+		}
+	}
+	std::cout << "The table is full" << std::endl;
+	return true;
+}
+
+void hashtable::DelfromTable(){
+	std::cout << "enter sim number\n like this 123-1234567" << std::endl;
+	std::string input;
+	std::cin >> input;
+	bool CallFromDel = 1;
+	tablesearch(CallFromDel);
+}
+
+void hashtable::tablesearch(bool CallFromDel){
+	std::cout << "enter sim number\n like this 123-1234567" << std::endl;
+	std::string input;
+	std::cin >> input;	
+	int hashnum = hashFunc(input);
+	int firsthash = hashnum;
+	int count=0;
+	while (true) {
+		if (mas[hashnum] == nullptr) {
+			std::cout << "there is no sim with such number" << std::endl;
+			return;
+		}
+		else {
+			std::string current = mas[hashnum]->GetSimNum();
+			for (int i = 0; i < 11; i++) {
+				if (current[i] == input[i])
+					count++;
+			}
+			if (count==11) {
+				std::cout << "detected number" << std::endl;
+				mas[hashnum]->ShowSim();
+				if (CallFromDel == 1) {
+					mas[hashnum]->SetSimNum();
+					std::cout << "deleted" << std::endl;
+				}
+				return;
+			}
+			else {
+				if (hashnum == firsthash - 1) {
+					std::cout << "there is no sim with such number" << std::endl;
+					return;
+				}
+				else {
+					count = 0;
+					if (hashnum == 3) {
+						hashnum = 0;
+					}
+					else hashnum++;
+				}
+				
+			}
+		}
+
+	}
+}
+
+
+
+void hashtable::show(){
+	for (int i = 0; i < 4; i++){
+		if ((mas[i] == nullptr) || (mas[i]->GetSimNum() == "000-0000000")) {
+			std::cout << "mas[" << i << "]-0" << std::endl;
+		}
+		else {
+			std::cout << "mas[" << i << "]-"<< mas[i]->GetSimNum() << std::endl;
+		}
+	}
+}
+
 int hashtable::hashFunc(std::string simnum)
 {
 	int hashnum = 0;
@@ -21,14 +99,23 @@ int hashtable::hashFunc(std::string simnum)
 }
 
 void hashtable::preAdd(){
+	bool full=IsTableFull();
+	if (full) return;
 	std::shared_ptr<sim> temp(new sim());
 	addInTable(temp);
 }
 
 void hashtable::addInTable(std::shared_ptr<sim> obj){
 	int hashnum=hashFunc(obj->GetSimNum());
-	mas[hashnum] = obj;
-	std::cout<<mas[hashnum]->GetSimNum();
-	if (mas[0] == nullptr) std::cout << "nul";
+	bool f = 1;
+	while (f) {
+		if ((mas[hashnum] == nullptr) || (mas[hashnum]->GetSimNum() == "000-0000000")) {
+			mas[hashnum] = obj;
+			f = 0;
+		}
+		else {
+			hashnum++;
+		}
+	}
 	
 }
