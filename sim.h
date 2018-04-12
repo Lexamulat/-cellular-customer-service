@@ -9,9 +9,10 @@ public:
 	void ShowSim();
 	std::string GetSimNum();
 	void SetSimNum();
+	
 	//std::string Getrate();
 	//int Getyear();
-	//bool Gethave();
+	bool Gethave();
 private:
 	std::string SimNum;
 	std::string rate;

@@ -79,7 +79,8 @@ void sim::SetSimNum()
 //	return 0;
 //}
 //
-//bool sim::Gethave()
-//{
-//	return false;
-//}
+bool sim::Gethave()
+{
+	if (this->have == 1)return 1;
+	return false;
+}

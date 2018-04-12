@@ -63,6 +63,10 @@ issuedsimcards::issuedsimcards(std::shared_ptr<BinaryTree> Bitree, std::shared_p
 		if (FindhInTable == 1)wrong = 0;
 		else wrong = 1;
 	}
+
+
+
+
 	clientsSimNum = input;
 	input.clear();
 
@@ -74,6 +78,9 @@ issuedsimcards::issuedsimcards(std::shared_ptr<BinaryTree> Bitree, std::shared_p
 	std::cout << "enter end date" << std::endl;
 	std::cin >> input;
 	endDate = input;
+
+
+
 }
 
 

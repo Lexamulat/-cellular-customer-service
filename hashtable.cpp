@@ -124,7 +124,13 @@ bool hashtable::TableSearchWithInputString(std::string input){
 					count++;
 			}
 			if (count == 11) {
-				return 1;
+				if (mas[hashnum]->Gethave()==1) {
+					return 1;
+				}
+				else {
+					std::cout <<"SIM card is not available" << std::endl;
+					return 0;
+				}
 			}
 			else {
 				if (hashnum == firsthash - 1) {
