@@ -23,32 +23,32 @@ int main() {
 
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
+	
 
+	//shared_ptr<BinaryTree> Bitree(new BinaryTree());
+	//Bitree->TestData();
 
-	shared_ptr<BinaryTree> Bitree(new BinaryTree());
-	Bitree->TestData();
-
-	Bitree->Preshow();
-
-
-
-	shared_ptr<hashtable> table(new hashtable());
-
-	table->TestDataForTable();
-	table->show();
-
-	cout << "--------------------" << endl;
-
-	shared_ptr<list> clientSimList(new list(Bitree, table));
-
-	clientSimList->CreateNewInList();
-	clientSimList->CreateNewInList();
-
-	clientSimList->ShowList();
+	//Bitree->Preshow();
 
 
 
+	//shared_ptr<hashtable> table(new hashtable());
 
+	//table->TestDataForTable();
+	//table->show();
+
+	//cout << "--------------------" << endl;
+
+	//shared_ptr<list> clientSimList(new list(Bitree, table));
+
+	//clientSimList->CreateNewInList();
+	////clientSimList->CreateNewInList();
+
+	//clientSimList->ShowList();
+
+	//clientSimList->DelFromList();
+	//
+	//clientSimList->ShowList();
 	//cout << (int)'0' << endl;//48
 
 	//cout << (int)'9';//57

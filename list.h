@@ -8,7 +8,9 @@ public:
 	~list();
 	void CreateNewInList();
 	void AddInList(std::shared_ptr<listpoint> temp);
+	void DelFromList();
 	void ShowList();
+	void SortList();
 private:
 	std::shared_ptr<listpoint> SimHead = nullptr;
 	std::shared_ptr<listpoint> SimLast = nullptr;

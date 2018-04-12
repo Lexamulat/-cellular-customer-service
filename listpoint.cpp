@@ -2,7 +2,7 @@
 
 
 listpoint::listpoint() {
-	std::cout << "r";
+	
 }
 
 //listpoint::listpoint(std::shared_ptr<BinaryTree> Bitree, std::shared_ptr<hashtable> table){

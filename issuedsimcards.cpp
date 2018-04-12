@@ -90,3 +90,15 @@ issuedsimcards::~issuedsimcards()
 void issuedsimcards::ShowMeThisInfo(){
 	std::cout << this->clientsPass << "|" << this->clientsSimNum << "|" << this->startDate << "-" << this->endDate << std::endl;
 }
+
+int issuedsimcards::clientsSimnumToInt(){
+	std::string fake = this->clientsSimNum;
+	fake.erase(fake.begin() + 3);// eraise 3 symb ('-')
+	int num = 0;
+	int j = 0;
+	for (int i = fake.length() - 1; i>-1; i--) {
+		num = num + ((int)fake[i] - 48)*pow(10, j);
+		j++;
+	}
+	return num;
+}

@@ -9,6 +9,7 @@ public:
 	issuedsimcards(std::shared_ptr<BinaryTree> Bitree, std::shared_ptr<hashtable> table);
 	~issuedsimcards();
 	void ShowMeThisInfo();
+	int clientsSimnumToInt();
 //private:
 	std::string clientsPass;
 	std::string clientsSimNum;
