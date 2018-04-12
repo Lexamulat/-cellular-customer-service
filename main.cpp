@@ -40,7 +40,9 @@ int main() {
 	cout << "--------------------" << endl;
 
 	shared_ptr<list> clientSimList(new list(Bitree, table));
+
 	clientSimList->CreateNewInList();
+
 	clientSimList->ShowList();
 
 

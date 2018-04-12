@@ -4,11 +4,17 @@
 class listpoint:public issuedsimcards
 {
 public:
-	listpoint(std::shared_ptr<BinaryTree> Bitree, std::shared_ptr<hashtable> table);
+	listpoint();
+	listpoint(std::shared_ptr<BinaryTree> Bitree, std::shared_ptr<hashtable> table) :issuedsimcards(Bitree, table) {
+		
+		std::cout << "r";
+		vectorOfPoints->insert(vectorOfPoints->end(), nullptr);
+	};
+	
 	~listpoint();
-	std::vector<std::shared_ptr<listpoint>> GetVector();
+	std::shared_ptr<std::vector<std::shared_ptr<listpoint>>> GetVector();
 private:
-	std::vector<std::shared_ptr<listpoint>> vectorOfPoints;
-
+	std::vector<std::shared_ptr<listpoint>> array;
+	std::shared_ptr<std::vector<std::shared_ptr<listpoint>>> vectorOfPoints = std::make_shared<std::vector<std::shared_ptr<listpoint>> >(std::move(array));
 };
 
