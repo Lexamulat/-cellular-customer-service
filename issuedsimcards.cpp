@@ -2,6 +2,10 @@
 
 
 
+issuedsimcards::issuedsimcards()
+{
+}
+
 issuedsimcards::issuedsimcards(std::shared_ptr<BinaryTree> Bitree, std::shared_ptr<hashtable> table){
 	bool wrong = 1;
 	std::string input;
@@ -86,4 +90,8 @@ issuedsimcards::issuedsimcards(std::shared_ptr<BinaryTree> Bitree, std::shared_p
 
 issuedsimcards::~issuedsimcards()
 {
+}
+
+void issuedsimcards::ShowMeThisInfo(){
+	std::cout << this->clientsPass << "|" << this->clientsSimNum << "|" << this->startDate << "-" << this->endDate << std::endl;
 }

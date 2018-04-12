@@ -5,8 +5,12 @@
 
 tree::tree()
 {
-	
+	std::cout << "intree" << std::endl;
 }
+
+//tree::tree(std::string passportID, std::string placeOfIssue, std::string SurnameNamePatronymic, int year, std::string address){
+//	client(passportID,placeOfIssue,SurnameNamePatronymic,year,address);
+//}
 
 tree::~tree()
 {

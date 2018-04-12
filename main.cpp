@@ -23,13 +23,30 @@ int main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
+
+	shared_ptr<BinaryTree> Bitree(new BinaryTree());
+	Bitree->TestData();
+
+	Bitree->Preshow();
+
+
+
+
+
+
+
+
+
+
+
+
 	//cout << (int)'0' << endl;//48
 
 	//cout << (int)'9';//57
-	shared_ptr<BinaryTree> Bitree(new BinaryTree());
+	/*shared_ptr<BinaryTree> Bitree(new BinaryTree());
 	Bitree->Create();
 	Bitree->PreFragmentalSearch();
-
+*/
 		/*shared_ptr<BinaryTree> Bitree(new BinaryTree());
 		Bitree->Create();*/
 		//

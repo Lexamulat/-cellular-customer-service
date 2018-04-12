@@ -12,6 +12,28 @@ list::~list()
 {
 }
 
-void list::AddInList(){
-	std::shared_ptr<issuedsimcards> temp(new issuedsimcards());
+void list::CreateNewInList(){
+	std::shared_ptr<listpoint> temp(new listpoint(Bitree, table));
+	AddInList(temp);
+}
+
+void list::AddInList(std::shared_ptr<listpoint> temp){
+	if (SimHead == nullptr) {
+		SimHead = temp;
+	}
+	if (SimLast == nullptr) {
+		SimLast = temp;
+	}
+	else{
+	SimLast->GetVector().insert(SimLast->GetVector().end(), temp);
+	SimLast = temp;
+	}
+}
+
+void list::ShowList(){
+	std::shared_ptr<listpoint> current = SimHead;
+	while (current->GetVector()[0] != nullptr) {
+	 current->ShowMeThisInfo();
+	 current = current->GetVector()[0];
+	}
 }

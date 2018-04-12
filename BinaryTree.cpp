@@ -20,6 +20,35 @@ bool BinaryTree::Search(std::string input){
 	else return 1;
 }
 
+void BinaryTree::TestData(){
+	//tree(std::string passportID, std::string placeOfIssue, std::string SurnameNamePatronymic, int year, std::string address);
+
+	std::string passportID = "9412-220765";
+	std::string placeOfIssue = "МО уфмс г Москва";
+	std::string SurnameNamePatronymic = "Гараев/Максим/Ильдарович";
+	int year = 1998;
+	std::string address = "Сорочинск";
+	std::shared_ptr<tree> temp(new tree(passportID, placeOfIssue, SurnameNamePatronymic,year,address));
+	Add(head, temp, current);
+
+	passportID = "1245-458333";
+	placeOfIssue = "МО уфмс г Санкт-Петербург";
+	SurnameNamePatronymic = "Гришин/Сергей/Александрович";
+	year = 2000;
+	address = "Псков";
+	 std::shared_ptr<tree> temp1(new tree(passportID, placeOfIssue, SurnameNamePatronymic, year, address));
+	 Add(head, temp1, current);
+
+	 passportID = "1919-458333";
+	 placeOfIssue = "МО уфмс г Сочи";
+	 SurnameNamePatronymic = "Килин/Даниил/Викторович";
+	 year = 2010;
+	 address = "Сарапул";
+	std::shared_ptr<tree> temp2(new tree(passportID, placeOfIssue, SurnameNamePatronymic, year, address));
+	Add(head, temp2, current);
+
+}
+
 void BinaryTree::Rec(std::shared_ptr<tree> Current, int num, bool & b){
 	if (num == Current->ClientPassIdToNum(Current->GetPassId())) {
 

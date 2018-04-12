@@ -2,7 +2,12 @@
 
 
 using namespace std;
-
+client::client(std::string ipassportID, std::string iplaceOfIssue, std::string iSurnameNamePatronymic, int iyear, std::string iaddress) {
+	SurnameNamePatronymic = iSurnameNamePatronymic;
+	placeOfIssue = iplaceOfIssue;
+	passportID = ipassportID;
+	address = iaddress;
+}
 client::client()
 {
 	bool wrong = 1;
@@ -52,6 +57,7 @@ client::client()
 	std::cin>> a;
 	year = a;
 }
+
 void client::ClientShow() {
 
 	cout << endl << "SurnameNamePatronymic:  " << SurnameNamePatronymic;

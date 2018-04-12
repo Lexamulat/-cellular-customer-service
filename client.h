@@ -6,6 +6,7 @@ class client
 {
 public:
     client();
+	client(std::string ipassportID, std::string iplaceOfIssue, std::string iSurnameNamePatronymic, int iyear, std::string iaddress);
 	void ClientShow();
 	int ClientPassIdToNum(const std::string &PasID);
 	std::string GetPassId();
@@ -13,7 +14,7 @@ public:
 	std::string GetSNP();
 
 	~client();
-private:
+//private:
 
 	std::string passportID;
 	std::string placeOfIssue;
