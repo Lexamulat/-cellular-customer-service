@@ -24,6 +24,7 @@ std::shared_ptr<tree> tree::GetLeft()
 std::shared_ptr<tree> tree::GetRight()
 {
 	return this->right;
+
 }
 
 void tree::SetLeft(std::shared_ptr<tree> set)

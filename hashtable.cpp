@@ -165,3 +165,28 @@ void hashtable::addInTable(std::shared_ptr<sim> obj){
 	}
 	
 }
+
+void hashtable::TestDataForTable(){
+
+	std::string SimNum = "123-1234567";
+	std::string rate = "безлимитище";
+	int YearOfIssue = 10;
+	std::shared_ptr<sim> temp(new sim(SimNum,rate,YearOfIssue));
+	addInTable(temp);
+
+
+	 SimNum = "111-1111111";
+	 rate = "smart";
+	 YearOfIssue = 20;
+
+	std::shared_ptr<sim> temp1(new sim(SimNum, rate, YearOfIssue));
+	addInTable(temp1);
+
+	SimNum = "121-1122111";
+	rate = "lite";
+	YearOfIssue = 30;
+
+	std::shared_ptr<sim> temp2(new sim(SimNum, rate, YearOfIssue));
+	addInTable(temp2);
+
+}

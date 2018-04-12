@@ -2,6 +2,12 @@
 
 
 
+sim::sim(std::string iSimNum, std::string irate, int iYearOfIssue){
+	SimNum = iSimNum;
+	rate = irate;
+	YearOfIssue = iYearOfIssue;
+}
+
 sim::sim(){
 	bool wrong = 1;
 	std::string input;

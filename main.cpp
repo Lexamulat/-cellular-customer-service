@@ -24,16 +24,17 @@ int main() {
 	SetConsoleOutputCP(1251);
 
 
-	shared_ptr<BinaryTree> Bitree(new BinaryTree());
+	/*shared_ptr<BinaryTree> Bitree(new BinaryTree());
 	Bitree->TestData();
 
-	Bitree->Preshow();
+	Bitree->Preshow();*/
 
 
 
+	shared_ptr<hashtable> table(new hashtable());
 
-
-
+	table->TestDataForTable();
+	table->show();
 
 
 

@@ -4,6 +4,7 @@
 class sim
 {
 public:
+	sim(std::string iSimNum, std::string irate, int iYearOfIssue);
 	sim();
 	~sim();
 	void ShowSim();

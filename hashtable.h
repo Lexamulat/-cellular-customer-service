@@ -15,6 +15,7 @@ public:
 	void preAdd();
 	bool TableSearchWithInputString(std::string input);
 	void addInTable(std::shared_ptr<sim> obj);
+	void TestDataForTable();
 private:
 	 
 	std::shared_ptr<sim> mas[4]{};
