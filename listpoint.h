@@ -6,8 +6,6 @@ class listpoint:public issuedsimcards
 public:
 	listpoint();
 	listpoint(std::shared_ptr<BinaryTree> Bitree, std::shared_ptr<hashtable> table) :issuedsimcards(Bitree, table) {
-		
-		std::cout << "r";
 		vectorOfPoints->insert(vectorOfPoints->end(), nullptr);
 	};
 	

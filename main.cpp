@@ -42,6 +42,7 @@ int main() {
 	shared_ptr<list> clientSimList(new list(Bitree, table));
 
 	clientSimList->CreateNewInList();
+	clientSimList->CreateNewInList();
 
 	clientSimList->ShowList();
 
