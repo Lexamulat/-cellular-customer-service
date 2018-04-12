@@ -5,6 +5,7 @@
 #include <memory>
 #include "BinaryTree.h"
 #include "hashtable.h"
+#include "list.h"
 using namespace std;
 
 
@@ -24,10 +25,10 @@ int main() {
 	SetConsoleOutputCP(1251);
 
 
-	/*shared_ptr<BinaryTree> Bitree(new BinaryTree());
+	shared_ptr<BinaryTree> Bitree(new BinaryTree());
 	Bitree->TestData();
 
-	Bitree->Preshow();*/
+	Bitree->Preshow();
 
 
 
@@ -36,7 +37,11 @@ int main() {
 	table->TestDataForTable();
 	table->show();
 
+	cout << "--------------------" << endl;
 
+	shared_ptr<list> clientSimList(new list(Bitree, table));
+	clientSimList->CreateNewInList();
+	clientSimList->ShowList();
 
 
 
