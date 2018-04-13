@@ -115,10 +115,7 @@ void list::DelFromList(){
 		}
 	}
 	else {
-		std::shared_ptr<listpoint> Precurrent = SimHead;
-		while ((*Precurrent->GetVector())[0] != current) {
-			Precurrent = (*Precurrent->GetVector())[0];
-		}
+		std::shared_ptr<listpoint> Precurrent = FindPrev(current);
 		if (current == SimLast) {
 			SimLast = Precurrent;
 		}
@@ -141,8 +138,35 @@ void list::ShowList(){
 }
 
 void list::SortList(){
+	int count = 0;
+	std::shared_ptr<listpoint> current = SimHead;
 	std::shared_ptr<listpoint> left = SimHead;
 	std::shared_ptr<listpoint> right = SimLast;
+	do {
+		count++;
+		current = (*current->GetVector())[0];
+	} while (current != nullptr);
+	for (int i = 0; i < count - 1; i++) {
+		if (left->clientsSimnumToInt() < right->clientsSimnumToInt()) {
+			std::shared_ptr<listpoint> fake = left;
+			std::shared_ptr<listpoint> Preright = FindPrev(right);
+			std::shared_ptr<listpoint> Preleft = FindPrev(left);
+			if (Preleft != left) {(*Preleft->GetVector())[0] = right;}
+			(*left->GetVector())[0] = (*right->GetVector())[0];
+			(*right->GetVector())[0] = (*fake->GetVector())[0];
+			(*Preright->GetVector())[0] = left;
+		}
 	
+	}
+}
 
+std::shared_ptr<listpoint> list::FindPrev(std::shared_ptr<listpoint> temp){
+	std::shared_ptr<listpoint> Precurrent = SimHead;
+	if (temp == SimHead) {
+		return temp;
+	}
+	while ((*Precurrent->GetVector())[0] != temp) {
+		Precurrent = (*Precurrent->GetVector())[0];
+	}
+	return Precurrent;
 }

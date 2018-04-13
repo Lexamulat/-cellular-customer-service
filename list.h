@@ -11,6 +11,7 @@ public:
 	void DelFromList();
 	void ShowList();
 	void SortList();
+	std::shared_ptr<listpoint> FindPrev(std::shared_ptr<listpoint> temp);
 private:
 	std::shared_ptr<listpoint> SimHead = nullptr;
 	std::shared_ptr<listpoint> SimLast = nullptr;
