@@ -207,3 +207,26 @@ std::shared_ptr<listpoint> list::FindPrev(std::shared_ptr<listpoint> temp){
 	}
 	return Precurrent;
 }
+
+void list::TestData(){
+	std::string clientsPass="1919-458333";
+	std::string clientsSimNum = "123-1234567";
+	std::string startDate="1";
+	std::string endDate="2";
+	std::shared_ptr<listpoint> temp(new listpoint(Bitree, table, clientsPass, clientsSimNum, startDate, endDate));
+	AddInList(temp);
+
+	clientsPass = "1245-458333";
+	clientsSimNum = "111-1111111";
+	startDate = "4";
+	endDate = "5";
+	std::shared_ptr<listpoint> temp1(new listpoint(Bitree, table, clientsPass, clientsSimNum, startDate, endDate));
+	AddInList(temp1);
+
+	clientsPass = "1245-458333";
+	clientsSimNum = "121-1122111";
+	startDate = "7";
+	endDate = "8";
+	std::shared_ptr<listpoint> temp2(new listpoint(Bitree, table, clientsPass, clientsSimNum, startDate, endDate));
+	AddInList(temp2);
+}

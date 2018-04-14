@@ -6,6 +6,7 @@ class issuedsimcards
 {
 public:
 	issuedsimcards();
+	issuedsimcards(std::shared_ptr<BinaryTree> Bitree, std::shared_ptr<hashtable> table, std::string iclientsPass,std::string iclientsSimNum,	std::string istartDate,std::string iendDate);
 	issuedsimcards(std::shared_ptr<BinaryTree> Bitree, std::shared_ptr<hashtable> table);
 	~issuedsimcards();
 	void ShowMeThisInfo();

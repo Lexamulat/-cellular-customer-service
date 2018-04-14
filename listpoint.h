@@ -5,6 +5,9 @@ class listpoint:public issuedsimcards
 {
 public:
 	listpoint();
+	listpoint(std::shared_ptr<BinaryTree> Bitree, std::shared_ptr<hashtable> table, std::string iclientsPass, std::string iclientsSimNum, std::string istartDate, std::string iendDate) :issuedsimcards(Bitree, table, iclientsPass, iclientsSimNum, istartDate, iendDate) {
+		vectorOfPoints->insert(vectorOfPoints->end(), nullptr);
+	};
 	listpoint(std::shared_ptr<BinaryTree> Bitree, std::shared_ptr<hashtable> table) :issuedsimcards(Bitree, table) {
 		vectorOfPoints->insert(vectorOfPoints->end(), nullptr);
 	};

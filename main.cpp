@@ -41,13 +41,15 @@ int main() {
 
 	shared_ptr<list> clientSimList(new list(Bitree, table));
 
+	/*clientSimList->CreateNewInList();
 	clientSimList->CreateNewInList();
-	clientSimList->CreateNewInList();
+	clientSimList->CreateNewInList();*/
+	clientSimList->TestData();
 	clientSimList->ShowList();
 	cout << "--------------------" << endl;
 
-	clientSimList->SortList();
-	clientSimList->ShowList();
+	//clientSimList->SortList();
+	//clientSimList->ShowList();
 	////clientSimList->CreateNewInList();
 
 	//clientSimList->ShowList();

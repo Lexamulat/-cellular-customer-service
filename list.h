@@ -14,6 +14,7 @@ public:
 	void Swap(std::shared_ptr<listpoint> first, std::shared_ptr<listpoint> second);
 	std::shared_ptr<listpoint> GetIndex(int index);
 	std::shared_ptr<listpoint> FindPrev(std::shared_ptr<listpoint> temp);
+	void TestData();
 private:
 	std::shared_ptr<listpoint> SimHead = nullptr;
 	std::shared_ptr<listpoint> SimLast = nullptr;

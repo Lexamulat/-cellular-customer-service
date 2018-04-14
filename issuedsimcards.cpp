@@ -6,6 +6,14 @@ issuedsimcards::issuedsimcards(){
 	std::cout << std::endl << "num of passport \n like this 1234-123456" << std::endl;
 }
 
+issuedsimcards::issuedsimcards(std::shared_ptr<BinaryTree> Bitree, std::shared_ptr<hashtable> table, std::string iclientsPass, std::string iclientsSimNum, std::string istartDate, std::string iendDate){
+
+	clientsPass = iclientsPass;
+	clientsSimNum = iclientsSimNum;
+	startDate = istartDate;
+	endDate = iendDate;
+}
+
 issuedsimcards::issuedsimcards(std::shared_ptr<BinaryTree> Bitree, std::shared_ptr<hashtable> table){
 	bool wrong = 1;
 	std::string input;
