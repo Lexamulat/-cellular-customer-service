@@ -141,23 +141,60 @@ void list::SortList(){
 	int count = 0;
 	std::shared_ptr<listpoint> current = SimHead;
 	std::shared_ptr<listpoint> left = SimHead;
-	std::shared_ptr<listpoint> right = SimLast;
+	std::shared_ptr<listpoint> right = SimHead;
+	int j;
 	do {
 		count++;
 		current = (*current->GetVector())[0];
 	} while (current != nullptr);
-	for (int i = 0; i < count - 1; i++) {
-		if (left->clientsSimnumToInt() < right->clientsSimnumToInt()) {
-			std::shared_ptr<listpoint> fake = left;
-			std::shared_ptr<listpoint> Preright = FindPrev(right);
-			std::shared_ptr<listpoint> Preleft = FindPrev(left);
-			if (Preleft != left) {(*Preleft->GetVector())[0] = right;}
-			(*left->GetVector())[0] = (*right->GetVector())[0];
-			(*right->GetVector())[0] = (*fake->GetVector())[0];
-			(*Preright->GetVector())[0] = left;
+	int medium = count / 2;
+
+
+	while (medium>0)
+	{
+		for (int i = 0; i<count - medium; i++)
+		{
+			j = i;
+			while (j >= 0 && (GetIndex(j)->clientsSimnumToInt()>GetIndex(j+medium)->clientsSimnumToInt()))
+			{
+				Swap(GetIndex(j), GetIndex(j + medium));
+			}
 		}
-	
+		medium = medium / 2;
 	}
+	
+
+}
+
+void list::Swap(std::shared_ptr<listpoint> first, std::shared_ptr<listpoint> second){
+	bool b = 0;
+	std::shared_ptr<listpoint> fake = first;
+	std::shared_ptr<listpoint> help = (*second->GetVector())[0];
+
+	std::shared_ptr<listpoint> Prefirst = FindPrev(first);
+	std::shared_ptr<listpoint> Presecond = FindPrev(second);
+	if (second == SimLast) b = 1;
+	if (Prefirst != first) (*Prefirst->GetVector())[0] = second;
+	
+	if((*first->GetVector())[0]!=second)(*second->GetVector())[0] = (*first->GetVector())[0];
+	else (*second->GetVector())[0] = first;
+	SimHead = second;
+	(*Presecond->GetVector())[0] = first;
+	(*first->GetVector())[0] = help;
+	if (b == 1) {
+		SimLast = first;
+
+	}
+}
+
+std::shared_ptr<listpoint> list::GetIndex(int index)
+{
+	if (index == 0)return SimHead;
+	std::shared_ptr<listpoint> current = SimHead;
+	for (int i = 0; i < index; i++) {
+		current = (*current->GetVector())[0];
+	}
+	return current;
 }
 
 std::shared_ptr<listpoint> list::FindPrev(std::shared_ptr<listpoint> temp){
