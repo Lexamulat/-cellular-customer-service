@@ -158,6 +158,8 @@ void list::SortList(){
 			while (j >= 0 && (GetIndex(j)->clientsSimnumToInt()>GetIndex(j+medium)->clientsSimnumToInt()))
 			{
 				Swap(GetIndex(j), GetIndex(j + medium));
+				this->ShowList();
+				j--;
 			}
 		}
 		medium = medium / 2;

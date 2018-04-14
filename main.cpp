@@ -24,6 +24,7 @@ int main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	
+	
 
 	shared_ptr<BinaryTree> Bitree(new BinaryTree());
 	Bitree->TestData();
@@ -48,8 +49,8 @@ int main() {
 	clientSimList->ShowList();
 	cout << "--------------------" << endl;
 
-	//clientSimList->SortList();
-	//clientSimList->ShowList();
+	clientSimList->SortList();
+	clientSimList->ShowList();
 	////clientSimList->CreateNewInList();
 
 	//clientSimList->ShowList();
