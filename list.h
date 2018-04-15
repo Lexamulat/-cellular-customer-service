@@ -15,6 +15,8 @@ public:
 	std::shared_ptr<listpoint> GetIndex(int index);
 	std::shared_ptr<listpoint> FindPrev(std::shared_ptr<listpoint> temp);
 	void TestData();
+	void MakeLayers();
+	void Search();
 private:
 	std::shared_ptr<listpoint> SimHead = nullptr;
 	std::shared_ptr<listpoint> SimLast = nullptr;

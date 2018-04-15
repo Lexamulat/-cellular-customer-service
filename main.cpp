@@ -51,6 +51,8 @@ int main() {
 
 	clientSimList->SortList();
 	clientSimList->ShowList();
+	cout << "--------------------" << endl;
+	clientSimList->Search();
 	////clientSimList->CreateNewInList();
 
 	//clientSimList->ShowList();

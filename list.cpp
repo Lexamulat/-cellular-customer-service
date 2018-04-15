@@ -158,7 +158,7 @@ void list::SortList(){
 			while (j >= 0 && (GetIndex(j)->clientsSimnumToInt()>GetIndex(j+medium)->clientsSimnumToInt()))
 			{
 				Swap(GetIndex(j), GetIndex(j + medium));
-				this->ShowList();
+				//this->ShowList();
 				j--;
 			}
 		}
@@ -180,7 +180,7 @@ void list::Swap(std::shared_ptr<listpoint> first, std::shared_ptr<listpoint> sec
 	
 	if((*first->GetVector())[0]!=second)(*second->GetVector())[0] = (*first->GetVector())[0];
 	else (*second->GetVector())[0] = first;
-	SimHead = second;
+	if(SimHead==first)SimHead = second;
 	(*Presecond->GetVector())[0] = first;
 	(*first->GetVector())[0] = help;
 	if (b == 1) {
@@ -231,4 +231,72 @@ void list::TestData(){
 	endDate = "8";
 	std::shared_ptr<listpoint> temp2(new listpoint(Bitree, table, clientsPass, clientsSimNum, startDate, endDate));
 	AddInList(temp2);
+}
+
+void list::MakeLayers(){
+
+	if (SimHead == nullptr) {
+		std::cout << "list is empty" << std::endl;
+		return;
+	}
+	std::shared_ptr<listpoint> current = SimHead;
+	do {
+		if ((*current->GetVector()).size() > 1) {
+			(*current->GetVector()).erase((*current->GetVector()).begin() + 1);
+		}
+		current = (*current->GetVector())[0];
+	} while (current != nullptr);
+
+
+	std::shared_ptr<listpoint> mas[2]{ nullptr,nullptr };
+	do {
+		if ((((current->clientsSimnumToInt()) / 1000000000) == 4) && (mas[0] == nullptr))mas[0] = current;
+		if ((((current->clientsSimnumToInt()) / 1000000000) == 8) && (mas[1] == nullptr)) {
+			mas[1] = current;
+			break;
+		}
+		current = (*current->GetVector())[0];
+	} while (current != nullptr);
+
+	
+	(*SimHead->GetVector()).push_back(mas[0]);
+	(*mas[0]->GetVector()).push_back(mas[1]);
+
+}
+
+void list::Search() {
+	std::string sim;
+	std::cout << "enter sim number\n like this 123-1234567" << std::endl;
+	std::cin >> sim;
+	std::string copysim = sim;
+	copysim.erase(copysim.begin() + 3);
+	int num = 0;
+	int check = 0;
+	bool detected = 0;
+	int j = 0;
+	for (int i = copysim.length() - 1; i > -1; i--) {
+		num = num + ((int)copysim[i] - 48)*pow(10, j);
+		j++;
+	}
+	int step = num / 1000000000;
+
+	std::shared_ptr<listpoint> current = SimHead;
+
+	if (step >= 4) {
+		current = (*SimHead->GetVector())[1];
+	if(step>=8)current = (*current->GetVector())[1];
+	}
+	do {
+		for (int i = 0; i < sim.length(); i++) {
+			if (sim[i] == current->clientsSimNum[i]) {
+				check++;
+			}
+		}
+		if (check == 11) current->ShowMeThisInfo();
+		check = 0;
+		current = (*current->GetVector())[0];
+	} while (current != nullptr);
+	
+	
+
 }

@@ -3,7 +3,7 @@
 
 
 issuedsimcards::issuedsimcards(){
-	std::cout << std::endl << "num of passport \n like this 1234-123456" << std::endl;
+	//std::cout << std::endl << "num of passport \n like this 1234-123456" << std::endl;
 }
 
 issuedsimcards::issuedsimcards(std::shared_ptr<BinaryTree> Bitree, std::shared_ptr<hashtable> table, std::string iclientsPass, std::string iclientsSimNum, std::string istartDate, std::string iendDate){
