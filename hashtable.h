@@ -15,7 +15,7 @@ public:
 	void ShowSimData();
 	int hashFunc(std::string simnum);
 	void preAdd();
-	bool TableSearchWithInputString(std::string input,bool CallFromClientListAdd=0);
+	bool TableSearchWithInputString(std::string input,bool CallFromClientListAdd=0, bool CallFromClientListDel = 0);
 	void addInTable(std::shared_ptr<sim> obj);
 	void TestDataForTable();
 private:
