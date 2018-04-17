@@ -87,7 +87,7 @@ void list::DelFromList(){
 				break;
 			}
 		}
-		bool FindhInTable = table->TableSearchWithInputString(input);
+		bool FindhInTable = table->TableSearchWithInputString(input,1,1);
 		if (FindhInTable == 1)wrong = 0;
 		else wrong = 1;
 	}
@@ -107,6 +107,8 @@ void list::DelFromList(){
 		std::cout << "no such elem" << std::endl;
 		return;
 	}
+	else{
+		current
 	if (current == SimHead) {
 		SimHead = (*current->GetVector())[0];
 		if (current == SimLast) {
@@ -121,7 +123,7 @@ void list::DelFromList(){
 		}
 		(*Precurrent->GetVector())[0] = (*current->GetVector())[0];
 		std::cout << "deleted" << std::endl;
-
+	}
 	}
 }
 

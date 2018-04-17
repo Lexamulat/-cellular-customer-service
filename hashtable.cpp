@@ -141,7 +141,7 @@ void hashtable::preAdd(){
 	addInTable(temp);
 }
 
-bool hashtable::TableSearchWithInputString(std::string input, bool CallFromClientListAdd){
+bool hashtable::TableSearchWithInputString(std::string input, bool CallFromClientListAdd, bool CallFromClientListDel){
 	int hashnum = hashFunc(input);
 	int firsthash = hashnum;
 	int count = 0;
@@ -160,6 +160,9 @@ bool hashtable::TableSearchWithInputString(std::string input, bool CallFromClien
 				if (mas[hashnum]->Gethave()==1) {
 					if (CallFromClientListAdd == 1) {
 						mas[hashnum]->Sethave(0);
+						if (CallFromClientListDel) {
+							mas[hashnum]->Sethave(1);
+						}
 					}
 					return 1;
 				}
