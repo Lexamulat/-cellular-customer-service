@@ -81,6 +81,13 @@ std::string client::GetSNP()
 	return this->SurnameNamePatronymic;
 }
 
+void client::ShowMeThisData(){
+
+	cout << setw(15) << this->passportID << setw(30) << this->placeOfIssue << setw(45) << this->SurnameNamePatronymic << setw(15) << this->year << setw(30) << this->address<<endl;
+
+
+}
+
 int client::ClientPassIdToNum(const string PasID) {
 	string CopyOfPass(PasID);
 	CopyOfPass.erase(CopyOfPass.begin() + 4);// eraise 4 symb ('-')

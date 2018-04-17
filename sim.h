@@ -1,6 +1,7 @@
 #pragma once
 #include<string>
 #include <iostream>
+#include <iomanip>
 class sim
 {
 public:
@@ -10,7 +11,8 @@ public:
 	void ShowSim();
 	std::string GetSimNum();
 	void SetSimNum();
-	
+	bool CompareInputStringWithThisRate(std::string input);
+	void ShowMeThisSimInfo();
 	//std::string Getrate();
 	//int Getyear();
 	bool Gethave();

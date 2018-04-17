@@ -75,6 +75,21 @@ void sim::SetSimNum()
 	this->SimNum = "000-0000000";
 }
 
+bool sim::CompareInputStringWithThisRate(std::string input){
+	if (input.length() != rate.length()) return false;
+	
+	for (int i = 0; i < input.length(); i++) {
+		if (input[i] != rate[i]) return false;
+	}
+
+	return true;
+}
+
+void sim::ShowMeThisSimInfo(){
+
+	std::cout << std::setw(15) << this->SimNum << std::setw(20) << this->rate << std::setw(20) << this->YearOfIssue << std::setw(15) << this->have << std::endl;
+}
+
 //std::string sim::Getrate()
 //{
 //	return this->rate;

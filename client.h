@@ -2,6 +2,7 @@
 #include<string>
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 class client
 {
 public:
@@ -12,6 +13,7 @@ public:
 	std::string GetPassId();
 	std::string GetAddress();
 	std::string GetSNP();
+	void ShowMeThisData();
 
 	~client();
 //private:

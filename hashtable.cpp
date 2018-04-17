@@ -30,6 +30,25 @@ void hashtable::DelfromTable(){
 	tablesearch(CallFromDel);
 }
 
+void hashtable::rateSearch(){
+	std::string input;
+	std::cout << std::endl << "rate of the sim?" << std::endl;
+	std::cin >> input;
+
+	for (int i = 0; i < 4;i++) {
+		if ((mas[i] == nullptr) || (mas[i]->GetSimNum() == "000-0000000")) {
+			continue;
+		}
+		else {
+			if (mas[i]->CompareInputStringWithThisRate(input)) {
+				mas[i]->ShowMeThisSimInfo();
+			}
+		}
+	}
+
+
+}
+
 void hashtable::tablesearch(bool CallFromDel){
 	
 	std::string input;
@@ -88,6 +107,20 @@ void hashtable::show(){
 		}
 		else {
 			std::cout << "mas[" << i << "]-"<< mas[i]->GetSimNum() << std::endl;
+		}
+	}
+}
+
+
+void hashtable::ShowSimData(){
+	std::cout << std::setw(15) << "Sim number" << std::setw(20) << "rate" << std::setw(20) << "Year of issue" << std::setw(15) << "avaliable" << std::endl;
+	for (int i = 0; i < 4; i++) {
+		if ((mas[i] == nullptr) || (mas[i]->GetSimNum() == "000-0000000")) {
+			continue;
+		}
+		else {
+			//cout << setw(15) << this->passportID << setw(30) << this->placeOfIssue << setw(45) << this->SurnameNamePatronymic << setw(15) << this->year << setw(30) << this->address << endl;
+			mas[i]->ShowMeThisSimInfo();
 		}
 	}
 }

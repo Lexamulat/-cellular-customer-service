@@ -20,6 +20,48 @@ bool BinaryTree::Search(std::string input){
 	else return 1;
 }
 
+
+//bool BinaryTree::Search() {
+//	std::shared_ptr<tree> fake;
+//	
+//	bool wrong = 1;
+//	std::string input;
+//	while (wrong) {
+//		std::cout << std::endl << "num of passport \n like this 1234-123456" << std::endl;
+//		std::cin >> input;
+//		if (input.length() != 11) {
+//			wrong = 1;
+//			continue;
+//		}
+//		for (int i = 0; i < 4; i++) {
+//			if (((int)input[i] < 48) || ((int)input[i] > 57)) {
+//				wrong = 1;
+//				break;
+//			}
+//		}
+//		if (input[4] != '-') {
+//			wrong = 1;
+//			continue;
+//		}
+//		for (int i = 5; i < 11; i++) {
+//			if (((int)input[i] < 48) || ((int)input[i] > 57)) {
+//				wrong = 1;
+//				break;
+//			}
+//		}
+//		wrong = 0;
+//	}
+//
+//	int pasnum = fake->ClientPassIdToNum(input);
+//	bool b = 0;
+//	Rec(head, pasnum, b);
+//	if (!b) {
+//		std::cout << "no such man" << std::endl;
+//		return 0;
+//	}
+//	else return 1;
+//}
+
 void BinaryTree::TestData(){
 	//tree(std::string passportID, std::string placeOfIssue, std::string SurnameNamePatronymic, int year, std::string address);
 
@@ -81,6 +123,8 @@ void BinaryTree::Rec(std::shared_ptr<tree> Current, int num, bool & b){
 }
 
 void BinaryTree::PreStraight(){
+	std::cout << std::setw(15) << "Passport ID" << std::setw(30) << "Place of issue" << std::setw(45) << "Surname/Name/Patronymic" << std::setw(15) << "Year of birth" << std::setw(30) <<"Address"<<std::endl;
+	std::cout << std::endl;
 	StraightPrint(head);
 }
 
@@ -92,8 +136,10 @@ void BinaryTree::StraightPrint(std::shared_ptr<tree> head){
 	StraightPrint(head->GetLeft());
 	StraightPrint(head->GetRight());
 
-	std::cout << head->GetPassId() << " ";
+	//std::cout << head->GetPassId() << " ";
+	 head->ShowMeThisData();
 }
+
 
 std::shared_ptr<tree> BinaryTree::removemin(std::shared_ptr<tree>& p)
 {
