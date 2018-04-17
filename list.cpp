@@ -130,6 +130,9 @@ void list::ShowList(){
 		std::cout << "list is empty" << std::endl;
 		return;
 	}
+	
+	std::cout << std::setw(15) << "Passport ID" << std::setw(15) << "Num of Sim" << std::setw(15) << "Start Date" << std::setw(15) << "End Date" << std::endl;
+
 	std::shared_ptr<listpoint> current = SimHead;
 	do {
 	current->ShowMeThisInfo();

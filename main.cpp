@@ -134,7 +134,7 @@ void ClientMenu() {
 void ClientSimmenu() {
 	bool b = 1;
 	while (b) {
-		cout << "Client - Sim menu" << endl;
+		cout <<endl <<"Client - Sim menu" << endl;
 		cout << "(1)Connect sim with user" << endl;
 		cout << "(2)Return of the SIM-card from the client" << endl;
 		cout << "(3)Serch by num of sim" << endl;
@@ -144,10 +144,10 @@ void ClientSimmenu() {
 		cin >> choiñe;
 		switch (choiñe) {
 		case 1:
-			table->preAdd();
+			clientSimList->CreateNewInList();
 			break;
 		case 2:
-			table->DelfromTable();
+			clientSimList->DelFromList();
 			break;
 		case 3:
 			clientSimList->Search();
@@ -182,6 +182,8 @@ void Mainmenu() {
 			SimMenu();
 			break;
 		case 3:
+			ClientSimmenu();
+			break;
 		case 4:
 			exit(0);
 		default: {

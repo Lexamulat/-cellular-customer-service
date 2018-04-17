@@ -71,10 +71,12 @@ issuedsimcards::issuedsimcards(std::shared_ptr<BinaryTree> Bitree, std::shared_p
 				break;
 			}
 		}
-		bool FindhInTable = table->TableSearchWithInputString(input);
+		bool FindhInTable = table->TableSearchWithInputString(input,1);
 		if (FindhInTable == 1)wrong = 0;
 		else wrong = 1;
 	}
+
+
 
 	clientsSimNum = input;
 	input.clear();
@@ -96,7 +98,8 @@ issuedsimcards::~issuedsimcards()
 }
 
 void issuedsimcards::ShowMeThisInfo(){
-	std::cout << this->clientsPass << "|" << this->clientsSimNum << "|" << this->startDate << "-" << this->endDate << std::endl;
+	std::cout << std::setw(15) << this->clientsPass << std::setw(15) << this->clientsSimNum << std::setw(15) << this->startDate << std::setw(15) << this->endDate << std::endl;
+	//std::cout << this->clientsPass << "|" << this->clientsSimNum << "|" << this->startDate << "-" << this->endDate << std::endl;
 }
 
 int issuedsimcards::clientsSimnumToInt(){

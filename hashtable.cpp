@@ -119,7 +119,7 @@ void hashtable::ShowSimData(){
 			continue;
 		}
 		else {
-			//cout << setw(15) << this->passportID << setw(30) << this->placeOfIssue << setw(45) << this->SurnameNamePatronymic << setw(15) << this->year << setw(30) << this->address << endl;
+			
 			mas[i]->ShowMeThisSimInfo();
 		}
 	}
@@ -136,12 +136,12 @@ int hashtable::hashFunc(std::string simnum)
 
 void hashtable::preAdd(){
 	bool full=IsTableFull();
-	if (full) return;
+	if (full)return;
 	std::shared_ptr<sim> temp(new sim());
 	addInTable(temp);
 }
 
-bool hashtable::TableSearchWithInputString(std::string input){
+bool hashtable::TableSearchWithInputString(std::string input, bool CallFromClientListAdd){
 	int hashnum = hashFunc(input);
 	int firsthash = hashnum;
 	int count = 0;
@@ -158,6 +158,9 @@ bool hashtable::TableSearchWithInputString(std::string input){
 			}
 			if (count == 11) {
 				if (mas[hashnum]->Gethave()==1) {
+					if (CallFromClientListAdd == 1) {
+						mas[hashnum]->Sethave(0);
+					}
 					return 1;
 				}
 				else {

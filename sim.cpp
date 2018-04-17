@@ -105,3 +105,7 @@ bool sim::Gethave()
 	if (this->have == 1)return 1;
 	return false;
 }
+
+void sim::Sethave(bool sethave){
+	this->have = sethave;
+}

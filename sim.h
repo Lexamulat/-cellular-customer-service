@@ -16,6 +16,7 @@ public:
 	//std::string Getrate();
 	//int Getyear();
 	bool Gethave();
+	void Sethave(bool sethave);
 private:
 	std::string SimNum;
 	std::string rate;
