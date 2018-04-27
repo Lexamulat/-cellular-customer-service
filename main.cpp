@@ -80,7 +80,7 @@ void ClientMenu() {
 			Bitree->Preremove();
 			break; }
 		case 3: {
-			//Bitree->Preshow();
+			Bitree->Preshow();
 			Bitree->PreStraight();
 			break; }
 
@@ -201,6 +201,7 @@ int main() {
 	Bitree->TestData();
 	table->TestDataForTable();
 	clientSimList->TestData();
+	Bitree->Preshow();
 
 	Mainmenu();
 

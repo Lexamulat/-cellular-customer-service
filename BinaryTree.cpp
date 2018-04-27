@@ -65,7 +65,7 @@ bool BinaryTree::Search(std::string input){
 void BinaryTree::TestData(){
 	//tree(std::string passportID, std::string placeOfIssue, std::string SurnameNamePatronymic, int year, std::string address);
 
-	std::string passportID = "9412-220765";
+	std::string passportID = "8412-220765";
 	std::string placeOfIssue = "МО уфмс г Москва";
 	std::string SurnameNamePatronymic = "Гараев/Максим/Ильдарович";
 	int year = 1998;
@@ -73,7 +73,7 @@ void BinaryTree::TestData(){
 	std::shared_ptr<tree> temp(new tree(passportID, placeOfIssue, SurnameNamePatronymic,year,address));
 	Add(head, temp, current);
 
-	passportID = "1245-458333";
+	passportID = "8245-458333";
 	placeOfIssue = "МО уфмс г Санкт-Петербург";
 	SurnameNamePatronymic = "Гришин/Сергей/Александрович";
 	year = 2000;
@@ -161,7 +161,7 @@ void BinaryTree::Preremove(){
 	std::cout << std::endl << "num of passport \n like this 1234-123456" << std::endl;
 	std::cin >> input;
 	std::shared_ptr<tree> fake;
-	input.erase(input.begin() + 4);
+	//input.erase(input.begin() + 4);
 	int pasnum = fake->ClientPassIdToNum(input);
 	//std::cout << "from inp to num" << std::endl;
 	bool b=0;
@@ -284,11 +284,8 @@ void BinaryTree::Add(std::shared_ptr<tree> &head, std::shared_ptr<tree> temp, st
 	if (head == nullptr) {
 		head = temp;
 		current = head;
-		//head->key = temp->key;
 		return;
 	}
-	//std::cout << temp->ClientPassIdToNum(temp->GetPassId());
-	//std::cout << temp->ClientPassIdToNum(temp->GetPassId());
 
 	else {
 		if (temp->ClientPassIdToNum(temp->GetPassId())<head->ClientPassIdToNum(head->GetPassId())) {
@@ -430,8 +427,8 @@ void BinaryTree::StraightSearchBySNP(std::shared_ptr<tree> head, std::string str
 	if (head == nullptr) {
 		return;
 	}
-	StraightPrint(head->GetLeft());
-	StraightPrint(head->GetRight());
+	StraightSearchBySNP(head->GetLeft(),str2,dontfound);
+	StraightSearchBySNP(head->GetRight(), str2, dontfound);
 	bool b=FragmentalSearch(head->GetSNP(),str2);
 	if (b) {
 		head->ClientShow();

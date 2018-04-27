@@ -10,6 +10,7 @@ public:
 		placeOfIssue = iplaceOfIssue;
 		passportID = ipassportID;
 		address = iaddress;
+		year = iyear;
 	};
 	tree();
 	~tree();	

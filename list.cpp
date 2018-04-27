@@ -108,7 +108,7 @@ void list::DelFromList(){
 		return;
 	}
 	else{
-		current
+		//current
 	if (current == SimHead) {
 		SimHead = (*current->GetVector())[0];
 		if (current == SimLast) {
