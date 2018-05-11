@@ -288,7 +288,10 @@ void BinaryTree::Add(std::shared_ptr<tree> &head, std::shared_ptr<tree> temp, st
 	}
 
 	else {
-		if (temp->ClientPassIdToNum(temp->GetPassId())<head->ClientPassIdToNum(head->GetPassId())) {
+		int tmp = temp->ClientPassIdToNum(temp->GetPassId());
+		int hd = head->ClientPassIdToNum(head->GetPassId());
+		/*if (temp->ClientPassIdToNum(temp->GetPassId())<head->ClientPassIdToNum(head->GetPassId())) {*/
+		if (temp->GetPassId()<head->GetPassId()) {
 			if (current->GetLeft() == nullptr) {
 				current->SetLeft(temp);
 				
